@@ -1,6 +1,8 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Management Team - WDB Entrepreneur Fund')
+@section('title')
+    {{ $page && $page->meta_title ? $page->meta_title : 'Management Team - WDB Entrepreneur Fund' }}
+@endsection
 
 @section('content')
 <section class="team-hero banner-section" id="team">
@@ -21,21 +23,9 @@
 <!-- Intro Section -->
 <section class="section-intro">
     <div class="container">
-        <p class="section-text animate-on-scroll">
-            An experienced, all-female investment team dedicated to supporting the
-            growth of women-led and impact-driven businesses across South Africa.
-        </p>
-        <p class="section-text animate-on-scroll">
-            Combining strong financial expertise with a deep understanding of the
-            real challenges entrepreneurs face, the team works closely with
-            portfolio companies to unlock opportunities, strengthen operations,
-            and build resilient, scalable enterprises. Their hands-on approach
-            goes beyond funding, providing strategic guidance, access to networks,
-            and practical support at every stage of the growth journey. By pairing
-            capital with insight and mentorship, the team helps businesses not
-            only secure financing, but grow with confidence, create jobs, and
-            deliver lasting impact in their communities.
-        </p>
+        @if($page && $page->is_active)
+            {!! $page->content !!}
+        @endif
     </div>
 </section>
 

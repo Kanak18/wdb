@@ -36,8 +36,7 @@
 
             <div class="mb-3">
                 <label for="editor" class="form-label">Content</label>
-                <div id="editor" style="height: 300px;"></div>
-                <input type="hidden" name="content" id="content">
+                <textarea name="content" id="editor">{{ old('content', $page->content) }}</textarea>
             </div>
 
             <div class="mb-3">
@@ -78,27 +77,36 @@
         </form>
     </div>
 </div>
-@endsection
 
-@section('scripts')
 <script>
-    var quill = new Quill('#editor', {
-        theme: 'snow',
-        placeholder: 'Write something...',
-        modules: {
-            toolbar: [
-                [{ header: [1, 2, false] }],
-                ['bold', 'italic', 'underline'],
-                ['image', 'code-block'],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                ['clean']
-            ]
-        }
-    });
- 
-    // Submit content to hidden input
-    document.querySelector('form').onsubmit = function () {
-        document.querySelector('#content').value = quill.root.innerHTML;
-    };
+tinymce.init({
+  selector: '#editor',
+  height: 400,
+
+  plugins: [
+    'code',
+    'link',
+    'image',
+    'lists',
+    'table',
+    'preview',
+    'fullscreen',
+    'searchreplace',
+    'visualblocks',
+    'wordcount'
+  ],
+
+  toolbar: `
+    undo redo |
+    bold italic underline |
+    bullist numlist |
+    alignleft aligncenter alignright |
+    link image |
+    code preview fullscreen
+  `,
+
+  menubar: false
+});
 </script>
+
 @endsection

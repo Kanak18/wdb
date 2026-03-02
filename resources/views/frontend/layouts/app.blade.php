@@ -67,11 +67,9 @@
 
                 <div class="contact-form animate-right">
                     <h3 class="footer_title">Contact us</h3>
-                    @if(session('success'))
-                        <div class="alert alert-success" style="background: #52b788; color: #fff; padding: 10px 15px; border-radius: 5px; margin-bottom: 15px;">
-                            {{ session('success') }}
-                        </div>
-                    @endif
+                    
+                    <div class="alert alert-success contact-alert-message" style="background: #ecf7ed; color: #fff; padding: 10px 15px; border-radius: 5px; margin-bottom: 15px; display: none;"></div>
+                    
                     <form id="contactForm" action="{{ route('contact.store') }}" method="POST">
                         @csrf
                         <div class="form-group">

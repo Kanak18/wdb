@@ -61,29 +61,70 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(el);
   });
 
-  const contactForm = document.getElementById("contactForm");
-  if (contactForm) {
-    contactForm.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const btn = e.target.querySelector(".btn-submit");
-      const originalText = btn.textContent;
+const contactForm = document.getElementById("contactForm");
 
-      btn.textContent = "Sending...";
-      btn.style.opacity = "0.8";
+if (contactForm) {
+  contactForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const btn = this.querySelector(".btn-submit");
+    const alertBox = document.querySelector(".contact-alert-message");
+    const originalText = btn.textContent;
+
+    btn.textContent = "Sending...";
+    btn.style.opacity = "0.8";
+    btn.disabled = true;
+
+    const formData = new FormData(this);
+
+    fetch(this.action, {
+      method: "POST",
+      headers: {
+        "X-CSRF-TOKEN": document.querySelector('input[name="_token"]').value,
+        "Accept": "application/json"
+      },
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+
+      // Reset form
+      this.reset();
+
+      // Show success message
+      alertBox.style.display = "block";
+      alertBox.textContent = "Thank you for your message. We will get back to you soon.";
+      alertBox.style.background = "#52b788";
+      alertBox.style.color = "#fff";
+
+      // Button success state
+      btn.textContent = "Message Sent!";
+      btn.style.background = "#52b788";
+
+      // Reset button after 3 seconds
+      setTimeout(() => {
+        btn.textContent = originalText;
+        btn.style.background = "";
+        btn.style.opacity = "1";
+        btn.disabled = false;
+        alertBox.style.display = "none";
+      }, 3000);
+    })
+    .catch(() => {
+      alertBox.style.display = "block";
+      alertBox.textContent = "Something went wrong. Please try again.";
+      alertBox.style.background = "red";
+
+      btn.textContent = "Error!";
+      btn.style.background = "red";
+      btn.disabled = false;
 
       setTimeout(() => {
-        btn.textContent = "Message Sent!";
-        btn.style.background = "#52b788";
-        e.target.reset();
-
-        setTimeout(() => {
-          btn.textContent = originalText;
-          btn.style.background = "";
-          btn.style.opacity = "1";
-        }, 3000);
-      }, 1500);
+        alertBox.style.display = "none";
+      }, 5000);
     });
-  }
+  });
+}
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
