@@ -11,10 +11,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- Quill CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.snow.css" rel="stylesheet"> 
-    <!-- Quill JS -->
-    <script src="https://cdn.jsdelivr.net/npm/quill@1.3.7/dist/quill.min.js"></script>    
+    <!-- Tiny  -->
+    <script src="https://cdn.tiny.cloud/1/zgft59l3e4az2xhrowkx25fm6oka2we9yu0az745lwos9p21/tinymce/6/tinymce.min.js"></script>
+
     <style>
         :root {
             --sidebar-width: 250px;
@@ -151,7 +150,7 @@
                         <i class="fas fa-envelope"></i> Contact Inquiries
                     </a>
                 </li>
-                <li class="nav-item mt-5">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}" target="_blank">
                         <i class="fas fa-external-link-alt"></i> View Website
                     </a>

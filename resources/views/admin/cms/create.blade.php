@@ -35,8 +35,7 @@
 
             <div class="mb-3">
                 <label for="editor" class="form-label">Content</label>
-                <div id="editor" style="height: 300px;"></div>
-                <input type="hidden" name="content" id="content">
+                <textarea name="content" id="editor">{{ old('content') }}</textarea>
             </div>
 
             <div class="mb-3">
@@ -77,31 +76,36 @@
         </form>
     </div>
 </div>
-@endsection
 
-@section('scripts')
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var quill = new Quill('#editor', {
-            theme: 'snow',
-            modules: {
-                toolbar: [
-                    [{ 'header': [1, 2, 3, false] }],
-                    ['bold', 'italic', 'underline', 'strike'],
-                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                    ['link', 'blockquote'],
-                    ['clean']
-                ]
-            }
-        });
-        
-        // Set initial content
-        quill.root.innerHTML = '{{ old('content') }}';
-        
-        // Copy editor content to hidden input on form submit
-        document.getElementById('cmsForm').addEventListener('submit', function() {
-            document.getElementById('content').value = quill.root.innerHTML;
-        });
-    });
+tinymce.init({
+  selector: '#editor',
+  height: 400,
+
+  plugins: [
+    'code',
+    'link',
+    'image',
+    'lists',
+    'table',
+    'preview',
+    'fullscreen',
+    'searchreplace',
+    'visualblocks',
+    'wordcount'
+  ],
+
+  toolbar: `
+    undo redo |
+    bold italic underline |
+    bullist numlist |
+    alignleft aligncenter alignright |
+    link image |
+    code preview fullscreen
+  `,
+
+  menubar: false
+});
 </script>
+
 @endsection

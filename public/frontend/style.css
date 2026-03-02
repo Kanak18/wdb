@@ -707,7 +707,7 @@ header.scrolled .hamburger span {
   border: none;
   border-radius: 5px;
   background: #fff;
-  color: #fff;
+  
   font-size: 11px;
   transition: var(--transition);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -722,9 +722,10 @@ header.scrolled .hamburger span {
 
 .form-group input:focus,
 .form-group textarea:focus {
-  outline: none;
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
+  
+  color: #147146;
+  /* background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4); */
 }
 
 .form-group textarea {

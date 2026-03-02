@@ -28,7 +28,7 @@
                     <tr>
                         <td>
                             @if($member->photo)
-                                <img src="{{ Storage::url($member->photo) }}" alt="{{ $member->name }}" 
+                                <img src="{{ asset('storage/' . $member->photo) }}" alt="{{ $member->name }}" 
                                      class="rounded" width="50" height="50" style="object-fit: cover;">
                             @else
                                 <div class="bg-secondary rounded d-flex align-items-center justify-content-center" 
