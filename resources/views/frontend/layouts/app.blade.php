@@ -15,62 +15,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/favicon-16x16.png') }}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
-    <style>
-        :root {
-            --primary-color: #147146;
-            --secondary-color: #165b36;
-            --accent-color: #faff11;
-            --transition: all 0.3s ease;
-        }
-        
-        /* Form styling */
-        .form-group {
-            margin-bottom: 21px;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 13px 18px;
-            border: none;
-            border-radius: 5px;
-            background: #fff;
-            color: #fff;
-            font-size: 11px;
-            transition: var(--transition);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-family: "Montserrat", sans-serif;
-        }
-        
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #147146;
-            font-family: "Montserrat", sans-serif;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            background: rgba(255, 255, 255, 0.15);
-            border-color: rgba(255, 255, 255, 0.4);
-        }
-        
-        .form-group textarea {
-            min-height: 100px;
-            resize: vertical;
-        }
-        
-        /* Contact form dark background */
-        .footer-section .form-group input,
-        .footer-section .form-group textarea {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-        }
-        
-        .footer-section .form-group input::placeholder,
-        .footer-section .form-group textarea::placeholder {
-            color: rgba(20, 113, 70, 0.7);
-        }
+    <style>        
     </style>
 </head>
 <body>
