@@ -27,6 +27,12 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 */
 
 Route::prefix('admin')->name('admin.')->group(function () {
+
+    // Redirect /admin -> /admin/login
+    Route::get('/', function () {
+        return redirect()->route('admin.login');
+    });
+
     // Admin Authentication Routes
     Route::middleware('guest:admin')->group(function () {
         Route::get('/login', [AdminAuthController::class, 'showLoginForm'])->name('login');
@@ -41,6 +47,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
         // Admin Logout
         Route::post('/logout', [AdminAuthController::class, 'logout'])->name('logout');
+
+        // Change Password
+        Route::get('/change-password', [AdminAuthController::class, 'showChangePasswordForm'])->name('change-password');
+        Route::post('/change-password', [AdminAuthController::class, 'changePassword'])->name('change-password.update');
 
         // Team Management
         Route::resource('/team', AdminTeamController::class);
