@@ -12,7 +12,7 @@
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('admin.cms.store') }}" method="POST">
+        <form action="{{ route('admin.cms.store') }}" method="POST" id="cmsForm">
             @csrf
             <div class="mb-3">
                 <label for="key" class="form-label">Page Key *</label>
@@ -34,12 +34,9 @@
             </div>
 
             <div class="mb-3">
-                <label for="content" class="form-label">Content</label>
-                <textarea class="form-control @error('content') is-invalid @enderror" 
-                          id="content" name="content" rows="10">{{ old('content') }}</textarea>
-                @error('content')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+                <label for="editor" class="form-label">Content</label>
+                <div id="editor" style="height: 300px;"></div>
+                <input type="hidden" name="content" id="content">
             </div>
 
             <div class="mb-3">
@@ -80,4 +77,31 @@
         </form>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var quill = new Quill('#editor', {
+            theme: 'snow',
+            modules: {
+                toolbar: [
+                    [{ 'header': [1, 2, 3, false] }],
+                    ['bold', 'italic', 'underline', 'strike'],
+                    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                    ['link', 'blockquote'],
+                    ['clean']
+                ]
+            }
+        });
+        
+        // Set initial content
+        quill.root.innerHTML = '{{ old('content') }}';
+        
+        // Copy editor content to hidden input on form submit
+        document.getElementById('cmsForm').addEventListener('submit', function() {
+            document.getElementById('content').value = quill.root.innerHTML;
+        });
+    });
+</script>
 @endsection
