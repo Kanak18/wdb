@@ -3,133 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>@yield('title', config('app.name'))</title>
+    <title>@yield('title', 'WDB Entrepreneur Fund')</title>
     @if(isset($page) && $page)
         <meta name="title" content="{{ $page->meta_title ?: $page->title }}">
         <meta name="description" content="{{ $page->meta_description ?: '' }}">
     @endif
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('frontend/images/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/favicon-16x16.png') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('frontend/style.css') }}">
     <style>
         :root {
-            --primary-color: #667eea;
-            --secondary-color: #764ba2;
+            --primary-color: #147146;
+            --secondary-color: #165b36;
+            --accent-color: #faff11;
+            --transition: all 0.3s ease;
         }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
+        
+        /* Form styling */
+        .form-group {
+            margin-bottom: 21px;
         }
-        .navbar {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            padding: 15px 0;
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 13px 18px;
+            border: none;
+            border-radius: 5px;
+            background: #fff;
+            color: #fff;
+            font-size: 11px;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: "Montserrat", sans-serif;
         }
-        .navbar-brand {
-            color: white !important;
-            font-weight: bold;
-            font-size: 1.5rem;
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #147146;
+            font-family: "Montserrat", sans-serif;
         }
-        .nav-link {
-            color: rgba(255,255,255,0.9) !important;
-            transition: color 0.3s;
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
         }
-        .nav-link:hover {
-            color: white !important;
+        
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
         }
-        .hero-section {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
+        
+        /* Contact form dark background */
+        .footer-section .form-group input,
+        .footer-section .form-group textarea {
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
         }
-        .footer {
-            background: #333;
-            color: white;
-            padding: 50px 0 20px;
-        }
-        .footer-links a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover {
-            color: white;
-        }
-        .team-card {
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .team-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .team-card img {
-            object-fit: cover;
-            height: 200px;
+        
+        .footer-section .form-group input::placeholder,
+        .footer-section .form-group textarea::placeholder {
+            color: rgba(20, 113, 70, 0.7);
         }
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <header id="header">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <i class="fas fa-cube me-2"></i>{{ config('app.name') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('team') ? 'active' : '' }}" href="{{ route('team') }}">Team</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
-                    </li>
-                    <li class="nav-item ms-2">
-                        <a href="{{ route('admin.login') }}" class="btn btn-outline-light btn-sm mt-1" target="_blank">
-                            <i class="fas fa-user-shield me-1"></i>Admin
-                        </a>
-                    </li>
-                </ul>
+            <div class="header-about">
+                <div class="logo">
+                    <a href="{{ route('home') }}" class="logo">
+                        <img src="{{ asset('frontend/images/logo.svg') }}" alt="WDB Entrepreneur Fund">
+                    </a>
+                </div>
+                <div class="navigation-bar">
+                    <ul class="nav-links" id="navLinks">
+                        <li><a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'active' : '' }}">Home</a></li>
+                        <li><a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'active' : '' }}">About Us</a></li>
+                        <li><a href="{{ route('team') }}" class="{{ request()->routeIs('team') ? 'active' : '' }}">Management Team</a></li>
+                    </ul>
+                    
+                    <div class="hamburger" id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+    </header>
 
     @yield('content')
 
-    <footer class="footer">
+    <section class="footer-section" id="contact">
         <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <h5>{{ config('app.name') }}</h5>
-                    <p class="text-muted">Building innovative solutions for a better tomorrow.</p>
+            <div class="contact-grid">
+                <div class="contact-info animate-left">
+                    <div class="team-details">
+                        <h4 class="footer_title">Welleminah Mdinisa</h4>
+                        <p class="role">Fund Manager</p>
+                        <img src="{{ asset('frontend/images/footer_img.png') }}" alt="Welleminah Mdinisa" class="team-photo" />
+                        <ul class="contact-links">
+                            <li>
+                                <a class="mail" href="mailto:welleminah@wdbentrepreneurfund.co.za">welleminah@wdbentrepreneurfund.co.za</a>
+                            </li>
+                            <li><a href="tel:+27828023533">+27 82 802 3533</a></li>
+                            <li>Building 2, Pinmill Office Park</li>
+                            <li>164 Katherine Street, Sandton, 2196</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-4 mb-4 footer-links">
-                    <h5>Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="{{ route('home') }}">Home</a></li>
-                        <li><a href="{{ route('team') }}">Team</a></li>
-                        <li><a href="{{ route('contact') }}">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4 mb-4">
-                    <h5>Contact Info</h5>
-                    <p class="text-muted">
-                        <i class="fas fa-envelope me-2"></i>info@example.com<br>
-                        <i class="fas fa-phone me-2"></i>+1 (555) 123-4567
-                    </p>
+
+                <div class="contact-form animate-right">
+                    <h3 class="footer_title">Contact us</h3>
+                    @if(session('success'))
+                        <div class="alert alert-success" style="background: #52b788; color: #fff; padding: 10px 15px; border-radius: 5px; margin-bottom: 15px;">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    <form id="contactForm" action="{{ route('contact.store') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <input type="text" name="first_name" placeholder="First name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="last_name" placeholder="Last name" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Email address" required />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="city" placeholder="City" />
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </form>
                 </div>
             </div>
-            <hr style="border-color: rgba(255,255,255,0.1);">
-            <div class="text-center text-muted">
-                <small>&copy; {{ date('Y') }} {{ config('app.name') }}. All rights reserved.</small>
+            <div class="footer-bottom">
+                <div class="logo">
+                    <img src="{{ asset('frontend/images/logo.svg') }}" alt="">
+                </div>
+                <p>
+                    <a href="#">Disclaimer</a> | <a href="#">Compliance and Privacy</a>
+                </p>
+                <p>
+                    WDB Entrepreneur Fund (Pty) Ltd (Registration No. 2024/418860/07) is an authorised Financial Services Provider (FSP No. 55325), licensed under the Financial Advisory and Intermediary Services Act 37 of 2002.
+                </p>
             </div>
         </div>
-    </footer>
+    </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ asset('frontend/main.js') }}"></script>
+    @yield('scripts')
 </body>
 </html>

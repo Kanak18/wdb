@@ -23,15 +23,24 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
-            'phone' => 'nullable|string|max:20',
-            'subject' => 'nullable|string|max:255',
+            'city' => 'nullable|string|max:255',
             'message' => 'required|string',
         ]);
 
+        // Combine first_name and last_name for name field
+        $validated['name'] = $validated['first_name'] . ' ' . $validated['last_name'];
+        
+        // Map city to subject (as per original schema)
+        $validated['subject'] = $validated['city'] ?? '';
+        
+        // Remove the separate fields
+        unset($validated['first_name'], $validated['last_name'], $validated['city']);
+
         ContactInquiry::create($validated);
 
-        return redirect()->route('contact')->with('success', 'Thank you for your message. We will get back to you soon.');
+        return redirect()->back()->with('success', 'Thank you for your message. We will get back to you soon.');
     }
 }

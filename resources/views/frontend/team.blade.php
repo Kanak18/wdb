@@ -1,62 +1,132 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'Our Team')
+@section('title', 'Management Team - WDB Entrepreneur Fund')
 
 @section('content')
-<!-- Page Header -->
-<section class="hero-section py-5">
+<section class="team-hero banner-section" id="team">
     <div class="container">
-        <h1 class="display-4 fw-bold mb-3">Our Team</h1>
-        <p class="lead">Meet the talented professionals behind our success</p>
+        <div class="team-hero-content hero-left-shape">
+            <h1>Management team</h1>
+            <p>
+                Dedicated investment specialists supporting the growth of
+                entrepreneurs and businesses in underserved communities.
+            </p>
+            <a href="#contact" class="contact-btn animate fade-in-up delay-6">
+                Apply for Funding
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Intro Section -->
+<section class="section-intro">
+    <div class="container">
+        <p class="section-text animate-on-scroll">
+            An experienced, all-female investment team dedicated to supporting the
+            growth of women-led and impact-driven businesses across South Africa.
+        </p>
+        <p class="section-text animate-on-scroll">
+            Combining strong financial expertise with a deep understanding of the
+            real challenges entrepreneurs face, the team works closely with
+            portfolio companies to unlock opportunities, strengthen operations,
+            and build resilient, scalable enterprises. Their hands-on approach
+            goes beyond funding, providing strategic guidance, access to networks,
+            and practical support at every stage of the growth journey. By pairing
+            capital with insight and mentorship, the team helps businesses not
+            only secure financing, but grow with confidence, create jobs, and
+            deliver lasting impact in their communities.
+        </p>
     </div>
 </section>
 
 <!-- Team Section -->
-<section class="py-5">
+<section class="section-team">
     <div class="container">
         @if($teams->count() > 0)
-            <div class="row">
+            <div class="team-grid">
                 @foreach($teams as $member)
-                    <div class="col-md-4 mb-4">
-                        <div class="card team-card h-100 border-0 shadow-sm">
+                    <div class="team-card animate-on-scroll">
+                        <div class="team-image-wrapper">
                             @if($member->photo)
-                                <img src="{{ Storage::url($member->photo) }}" class="card-img-top" 
-                                     alt="{{ $member->name }}">
+                                <img src="{{ Storage::url($member->photo) }}" alt="{{ $member->name }}" class="team-image" />
                             @else
-                                <div class="bg-secondary d-flex align-items-center justify-content-center" 
-                                     style="height: 200px;">
-                                    <i class="fas fa-user text-white fa-4x"></i>
+                                <div class="team-image" style="background: #e0f0e0; display: flex; align-items: center; justify-content: center;">
+                                    <span style="font-size: 14px; color: #147146;">No Photo</span>
                                 </div>
                             @endif
-                            <div class="card-body text-center">
-                                <h5 class="card-title mb-1">{{ $member->name }}</h5>
-                                <p class="text-primary mb-3">{{ $member->role }}</p>
-                                @if($member->bio)
-                                    <p class="card-text text-muted small">{{ Str::limit($member->bio, 100) }}</p>
-                                @endif
-                            </div>
+                        </div>
+                        <div class="team-content">
+                            <h2 class="team-name">{{ $member->name }}</h2>
+                            <p class="team-role">{{ $member->role }}</p>
+                            @if($member->bio)
+                                <p class="team-bio">{{ $member->bio }}</p>
+                            @endif
                         </div>
                     </div>
                 @endforeach
             </div>
         @else
-            <div class="text-center py-5">
-                <i class="fas fa-users fa-4x text-muted mb-4"></i>
-                <h3>No Team Members Yet</h3>
-                <p class="text-muted">Team members will be displayed here once added from the admin panel.</p>
+            <!-- Static team members from design -->
+            <div class="team-grid">
+                <div class="team-card animate-on-scroll">
+                    <div class="team-image-wrapper">
+                        <img src="{{ asset('frontend/images/welleminah_img.png') }}" alt="Welleminah Mdinisa" class="team-image" />
+                    </div>
+                    <div class="team-content">
+                        <h2 class="team-name">Welleminah Mdinisa</h2>
+                        <p class="team-role">Fund Manager</p>
+                        <p class="team-bio">
+                            An experienced investment professional with 10 years of
+                            experience in research, financial modelling, deal sourcing, and
+                            post-investment support. As the Fund Manager, she plays the
+                            pivotal role in overseeing investment decisions, portfolio
+                            strategy, and execution. She is a registered Business
+                            Practitioner and a member of the Institute of Business Advisors
+                            South Africa (IBASA) and South Africa, specializing in business
+                            analysis and guiding portfolio companies.
+                        </p>
+                    </div>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-image-wrapper">
+                        <img src="{{ asset('frontend/images/lerato_img.png') }}" alt="Lerato Maswanganyi" class="team-image" />
+                    </div>
+                    <div class="team-content">
+                        <h2 class="team-name">Lerato Maswanganyi</h2>
+                        <p class="team-role">Senior Investment Analyst</p>
+                        <p class="team-bio">
+                            A seasoned professional with 14 years in the financial services
+                            industry. She possesses extensive expertise in financial
+                            modelling, private equity valuations, portfolio analysis, and
+                            investment management. She supports the Fund Manager in
+                            investment evaluation, due diligence, and portfolio monitoring.
+                            She is also a licensed Business Rescue Practitioner, bringing
+                            valuable expertise in financial restructuring and turnaround
+                            situations.
+                        </p>
+                    </div>
+                </div>
+                <div class="team-card animate-on-scroll">
+                    <div class="team-image-wrapper">
+                        <img src="{{ asset('frontend/images/nomathemba_img.png') }}" alt="Nomathemba Nhlapo" class="team-image" />
+                    </div>
+                    <div class="team-content">
+                        <h2 class="team-name">Nomathemba Nhlapo</h2>
+                        <p class="team-role">Investment Analyst</p>
+                        <p class="team-bio">
+                            A results-oriented financial accounting professional with a BCom
+                            Hons in Financial Accounting and four years of practical
+                            experience as a Junior Accountant. Ms. Nhlapo supports the team
+                            with detailed financial statement analysis, due diligence
+                            preparation, audit support, and the maintenance of precise
+                            financial records. Her proficiency with industry-standard tools
+                            and commitment to accuracy contribute to the robust financial
+                            oversight of the Fund's operations and portfolio.
+                        </p>
+                    </div>
+                </div>
             </div>
         @endif
-    </div>
-</section>
-
-<!-- CTA Section -->
-<section class="py-5 bg-light">
-    <div class="container text-center">
-        <h2 class="mb-4">Want to join our team?</h2>
-        <p class="text-muted mb-4">We're always looking for talented individuals</p>
-        <a href="{{ route('contact') }}" class="btn btn-primary btn-lg">
-            <i class="fas fa-envelope me-2"></i>Get in Touch
-        </a>
     </div>
 </section>
 @endsection
