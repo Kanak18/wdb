@@ -12,7 +12,7 @@
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('admin.cms.update', $page->id) }}" method="POST">
+        <form action="{{ route('admin.cms.update', $page->id) }}" method="POST" id="cmsForm">
             @csrf
             @method('PUT')
             <div class="mb-3">
@@ -35,12 +35,9 @@
             </div>
 
             <div class="mb-3">
-                <label for="content" class="form-label">Content</label>
-                <textarea class="form-control @error('content') is-invalid @enderror" 
-                          id="content" name="content" rows="10">{{ old('content', $page->content) }}</textarea>
-                @error('content')
-                    <div class="invalid-feedback">{{ $message }}</div>
-                @enderror
+                <label for="editor" class="form-label">Content</label>
+                <div id="editor" style="height: 300px;"></div>
+                <input type="hidden" name="content" id="content">
             </div>
 
             <div class="mb-3">
@@ -81,4 +78,27 @@
         </form>
     </div>
 </div>
+@endsection
+
+@section('scripts')
+<script>
+    var quill = new Quill('#editor', {
+        theme: 'snow',
+        placeholder: 'Write something...',
+        modules: {
+            toolbar: [
+                [{ header: [1, 2, false] }],
+                ['bold', 'italic', 'underline'],
+                ['image', 'code-block'],
+                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+                ['clean']
+            ]
+        }
+    });
+ 
+    // Submit content to hidden input
+    document.querySelector('form').onsubmit = function () {
+        document.querySelector('#content').value = quill.root.innerHTML;
+    };
+</script>
 @endsection
