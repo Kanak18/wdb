@@ -252,7 +252,7 @@ header.scrolled .hamburger span {
   top: 18%;
   width: 300px;
   height: 160px;
-  background-image: url("../images/decor-shape.svg");
+  background-image: url("../frontend/images/decor-shape.svg");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: center;
@@ -781,7 +781,7 @@ header.scrolled .hamburger span {
 }
 /* About us CSS */
 .about-hero {
-  background: url("../images/about_img.png") center/cover;
+  background: url("../frontend/images/about_img.png") center/cover;
   display: flex;
   align-items: center;
   position: relative;
