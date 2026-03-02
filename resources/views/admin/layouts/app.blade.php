@@ -151,6 +151,11 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {{ request()->routeIs('admin.change-password*') ? 'active' : '' }}" href="{{ route('admin.change-password') }}">
+                        <i class="fas fa-key"></i> Change Password
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}" target="_blank">
                         <i class="fas fa-external-link-alt"></i> View Website
                     </a>
