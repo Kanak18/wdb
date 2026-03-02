@@ -124,7 +124,7 @@
                         <i class="fas fa-envelope"></i> Contact Inquiries
                     </a>
                 </li>
-                <li class="nav-item mt-5">
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('home') }}" target="_blank">
                         <i class="fas fa-external-link-alt"></i> View Website
                     </a>

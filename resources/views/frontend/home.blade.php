@@ -1,6 +1,8 @@
 @extends('frontend.layouts.app')
 
-@section('title', 'WDB Entrepreneur Fund - Funding Small Businesses in South Africa')
+@section('title')
+    {{ $page && $page->meta_title ? $page->meta_title : 'WDB Entrepreneur Fund - Funding Small Businesses in South Africa' }}
+@endsection
 
 @section('content')
 <section class="hero-section banner-section" id="home">

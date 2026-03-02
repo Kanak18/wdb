@@ -23,8 +23,8 @@ class PageController extends Controller
      */
     public function about()
     {
-        $page = CMSPage::where('key', 'aboutus')->where('is_active', true)->first();
-        return view('frontend.about', compact('page'));
+        $pageAboutWdbEntrepreneurFund = CMSPage::where('key', 'about-wdb-entrepreneur-fund')->where('is_active', true)->first();
+        return view('frontend.about', compact('pageAboutWdbEntrepreneurFund'));
     }
 
     /**

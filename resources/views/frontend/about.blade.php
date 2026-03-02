@@ -18,8 +18,8 @@
     </div>
 </section>
 
-@if($page && $page->is_active)
-    {!! $page->content !!}
+@if($pageAboutWdbEntrepreneurFund && $pageAboutWdbEntrepreneurFund->is_active)
+    {!! $pageAboutWdbEntrepreneurFund->content !!}
 @else
 <section class="section-fund">
     <div class="small_container">
