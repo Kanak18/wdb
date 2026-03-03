@@ -65,7 +65,7 @@
                     </div>
                 </div>
 
-                <div class="contact-form animate-right">
+                <div class="contact-form">
                     <h3 class="footer_title">Contact us</h3>
                     
                     <div class="alert alert-success contact-alert-message" style="background: #ecf7ed; color: #fff; padding: 10px 15px; border-radius: 5px; margin-bottom: 15px; display: none;"></div>
