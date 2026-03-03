@@ -174,7 +174,7 @@
 
         <div class="approach-grid">
             <div class="approach-card animate-on-scroll">
-                <div class="approach-icon"><img src="{{ asset('frontend/images/strategic_ic.svg') }}" alt="Strategic guidance"></div>
+                <div class="approach-icon"><img src="{{ asset('frontend/images/strategic_ic.png') }}" alt="Strategic guidance"></div>
                 <div class="approach-content">
                     <h3>Strategic guidance</h3>
                     <p>Helping entrepreneurs navigate growth challenges</p>
@@ -182,7 +182,7 @@
             </div>
 
             <div class="approach-card animate-on-scroll">
-                <div class="approach-icon"><img src="{{ asset('frontend/images/mentorship_ic.svg') }}" alt="Mentorship"></div>
+                <div class="approach-icon"><img src="{{ asset('frontend/images/mentorship_ic.png') }}" alt="Mentorship"></div>
                 <div class="approach-content">
                     <h3>Mentorship</h3>
                     <p>Connecting business leaders with experienced advisors</p>
@@ -190,7 +190,7 @@
             </div>
 
             <div class="approach-card animate-on-scroll">
-                <div class="approach-icon"><img src="{{ asset('frontend/images/access_ic.svg') }}" alt="Market access"></div>
+                <div class="approach-icon"><img src="{{ asset('frontend/images/access_ic.png') }}" alt="Market access"></div>
                 <div class="approach-content">
                     <h3>Market access</h3>
                     <p>Opening doors to networks and supply chains</p>
@@ -198,7 +198,7 @@
             </div>
 
             <div class="approach-card animate-on-scroll">
-                <div class="approach-icon"><img src="{{ asset('frontend/images/support_ic.svg') }}" alt="Governance support"></div>
+                <div class="approach-icon"><img src="{{ asset('frontend/images/support_ic.png') }}" alt="Governance support"></div>
                 <div class="approach-content">
                     <h3>Governance support</h3>
                     <p>Strengthening business foundations for long-term success</p>
