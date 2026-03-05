@@ -25,6 +25,58 @@
     </div>
 </section>
 
+<div class="info-section">
+    <div class="container">
+        <p class="section-text animate-on-scroll visible">
+            The WDB Entrepreneur Fund is an impact-focused investment fund
+            committed to supporting high-potential small and medium enterprises
+            across South Africa. Our focus is on woman and youth-led businesses
+            with the ability to grow sustainably, create jobs, and contribute
+            meaningfully to the broader economy particularly in sectors where
+            access to capital can unlock significant opportunity.
+        </p>
+        <p class="section-text animate-on-scroll visible">
+            Our core mission is to expand access to funding for businesses,
+            especially those led by women and youth operating in underserved or
+            under-resourced communities. Many of these entrepreneurs face
+            structural barriers to finance despite having viable, growth-oriented
+            businesses. By providing targeted funding and strategic support, the
+            Fund enables these enterprises to scale, strengthen their operations,
+            and build long-term resilience.
+        </p>
+    </div>
+</div>
+
+<section class="section-difference">
+    <div class="container">
+        <h2 class="pageTitle animate-left">The WDB difference</h2>
+
+        <div class="difference-content animate-right">
+            <div class="difference-columns">
+                <div class="difference-column">
+                    <h3>For Investors</h3>
+                    <ul class="difference-list">
+                        <li>Deploy your ED capital efficiently</li>
+                        <li>Maximise your points on your B-BBEE scorecard</li>
+                        <li>Earn competitive financial returns on your investment</li>
+                        <li>Achieve genuine transformational credentials</li>
+                    </ul>
+                </div>
+
+                <div class="difference-column">
+                    <h3>For Entrepreneurs</h3>
+                    <ul class="difference-list">
+                        <li>Access patient growth capital</li>
+                        <li>Receive strategic operational support</li>
+                        <li>Build sustainable, independent businesses</li>
+                        <li>Join a proven development ecosystem</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 @if($page && $page->is_active)
     {!! $page->content !!}
 @else
@@ -67,36 +119,6 @@
 </section>
 @endif
 
-<section class="section-difference">
-    <div class="container">
-        <h2 class="pageTitle animate-left">The WDB difference</h2>
-
-        <div class="difference-content animate-right">
-            <div class="difference-columns">
-                <div class="difference-column">
-                    <h3>For Investors</h3>
-                    <ul class="difference-list">
-                        <li>Deploy your ED capital efficiently</li>
-                        <li>Maximise your points on your B-BBEE scorecard</li>
-                        <li>Earn competitive financial returns on your investment</li>
-                        <li>Achieve genuine transformational credentials</li>
-                    </ul>
-                </div>
-
-                <div class="difference-column">
-                    <h3>For Entrepreneurs</h3>
-                    <ul class="difference-list">
-                        <li>Access patient growth capital</li>
-                        <li>Receive strategic operational support</li>
-                        <li>Build sustainable, independent businesses</li>
-                        <li>Join a proven development ecosystem</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <section class="section-metrics">
     <div class="container">
         <h2 class="pageTitle animate-left visible">Key Metrics</h2>
@@ -104,61 +126,37 @@
         <div class="metrics-grid animate-scale">
             <div class="metric-item">
                 <span>Total Capital Raised</span>
-                <h3>R45.9m</h3>
-            </div>
-            <div class="metric-item">
-                <span>Small Businesses Funded</span>
-                <h3>19</h3>
+                <h3>R46m</h3>
             </div>
             <div class="metric-item">
                 <span>Capital Deployed</span>
                 <h3>100%</h3>
             </div>
             <div class="metric-item">
-                <span>NAV Growth (year on year)</span>
-                <h3>10.6%</h3>
-            </div>
-            <div class="metric-item">
-                <span>Fund NAV (Audited 2025)</span>
-                <h3>R68.7m</h3>
+                <span>Small businesses funded</span>
+                <h3>19</h3>
             </div>
             <div class="metric-item">
                 <span>Exits</span>
                 <h3>12</h3>
             </div>
+            <div class="metric-item">
+                <span>Total Jobs Created</span>
+                <h3>170</h3>
+            </div>
+            <div class="metric-item">
+                <span>Youth Employment</span>
+                <h3>60% of jobs by youth under 35</h3>
+            </div>            
         </div>
 
         <div class="metrics-subtext animate-on-scroll">
             <p>
-                Since inception R45.9 million raised and 100% was invested into 19
-                small business. To date, the fund has executed exit of 12 businesses
-                and have achieved a 10.6% NAV year on year.
+                WDB Growth Fund has demonstrated strong NAV growth, particularly in the most recent reporting period (2025), with the ED Ordinary Shares NAV increasing by 31.1% from 2024.
             </p>
         </div>
     </div>
 </section>
-
-<div class="info-section">
-    <div class="container">
-        <p class="section-text animate-on-scroll visible">
-            The WDB Entrepreneur Fund is an impact-focused investment fund
-            committed to supporting high-potential small and medium enterprises
-            across South Africa. Our focus is on woman and youth-led businesses
-            with the ability to grow sustainably, create jobs, and contribute
-            meaningfully to the broader economy particularly in sectors where
-            access to capital can unlock significant opportunity.
-        </p>
-        <p class="section-text animate-on-scroll visible">
-            Our core mission is to expand access to funding for businesses,
-            especially those led by women and youth operating in underserved or
-            under-resourced communities. Many of these entrepreneurs face
-            structural barriers to finance despite having viable, growth-oriented
-            businesses. By providing targeted funding and strategic support, the
-            Fund enables these enterprises to scale, strengthen their operations,
-            and build long-term resilience.
-        </p>
-    </div>
-</div>
 
 <section class="section-approach">
     <div class="container">
