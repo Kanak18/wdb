@@ -99,11 +99,11 @@
                     WDB Entrepreneur Fund (Pty) Ltd (Registration No. 2024/418860/07) is an authorised Financial Services Provider (FSP No. 55325), licensed under the Financial Advisory and Intermediary Services Act 37 of 2002.
                 </p>
                 <p>
-                    <a href="{{ asset('frontend/uploads/WDB-Disclaimer.pdf') }}" download>Disclaimer</a> | 
-                    <a href="{{ asset('frontend/uploads/Protection-of-Personal-Information-Policy-WDB.pdf') }}" download>Protection of Personal Information Policy (POPI)</a> | 
-                    <a href="{{ asset('frontend/uploads/PAIA-Manual-WDB.pdf') }}" download>PAIA Manual</a> | 
-                    <a href="{{ asset('frontend/uploads/Complaints-Management-Procedure.pdf') }}" download>Complaints management procedure</a> | 
-                    <a href="{{ asset('frontend/uploads/Privacy-Policy-WDB.pdf') }}" download>Privacy Notice</a>
+                    <a href="{{ route('download.disclaimer') }}">Disclaimer</a> | 
+                    <a href="{{ route('download.popi') }}">Protection of Personal Information Policy (POPI)</a> | 
+                    <a href="{{ route('download.paia') }}">PAIA Manual</a> | 
+                    <a href="{{ route('download.complaints') }}">Complaints management procedure</a> | 
+                    <a href="{{ route('download.privacy') }}">Privacy Notice</a>
                 </p>                
             </div>
         </div>
