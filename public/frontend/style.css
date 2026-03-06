@@ -146,13 +146,15 @@ header.scrolled .nav-links a {
 
 .header-about {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
 }
-
+.header-about .logo {
+  width: 61%;
+}
 .logo img {
   width: 100%;
-  max-width: 180px;
+  max-width: 230px;
   height: auto;
 }
 
@@ -238,7 +240,7 @@ header.scrolled .hamburger span {
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 125px 0 50px;
+  padding: 125px 0 54px;
 }
 
 .banner-section {
@@ -274,7 +276,7 @@ header.scrolled .hamburger span {
   position: relative;
   display: inline-block;
   vertical-align: middle;
-  padding: 60px 90px 70px 0;
+  padding: 60px 190px 70px 0;
 }
 .hero-left-shape:before {
   position: absolute;
@@ -535,7 +537,7 @@ header.scrolled .hamburger span {
 }
 
 .metric-item h3 {
-  font-size: 17px;
+  font-size: 30px;
   font-weight: 700;
   color: #fff;
   line-height: 1.4;
@@ -547,6 +549,12 @@ header.scrolled .hamburger span {
   font-size: 13px;
   line-height: 1.4;
 }
+
+.youth-employment-p {
+  color: #fff;
+  font-size: 9.1px;
+}
+
 .info-section {
   padding: 60px 0;
 }
@@ -707,7 +715,7 @@ header.scrolled .hamburger span {
   border: none;
   border-radius: 5px;
   background: #fff;
-  
+
   font-size: 11px;
   transition: var(--transition);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -722,7 +730,6 @@ header.scrolled .hamburger span {
 
 .form-group input:focus,
 .form-group textarea:focus {
-  
   color: #147146;
   /* background: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.4); */
@@ -789,7 +796,7 @@ header.scrolled .hamburger span {
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 125px 0 50px;
+  padding: 125px 0 54px;
 }
 
 .about-hero-content {
@@ -797,6 +804,10 @@ header.scrolled .hamburger span {
   position: relative;
   z-index: 2;
   animation: fadeInUp 1s ease-out;
+}
+
+.about-hero-content.hero-left-shape {
+  padding: 75px 190px 85px 0;
 }
 
 .about-hero h1 {
@@ -1029,7 +1040,8 @@ header.scrolled .hamburger span {
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 125px 0 50px;
+  padding: 125px 0 54px;
+  min-height: 635px;
 }
 
 .team-hero-content {
@@ -1165,6 +1177,9 @@ header.scrolled .hamburger span {
   }
 }
 @media screen and (max-width: 768px) {
+  .header-about .logo {
+    width: 100%;
+  }
   .header-about {
     align-items: center;
   }
@@ -1463,12 +1478,12 @@ header.scrolled .hamburger span {
   }
 }
 @media screen and (max-width: 480px) {
-  .hero-left-shape:before{
+  .hero-left-shape:before {
     display: none;
   }
   .hero-left-shape {
-    padding: 0;
-}
+    padding: 0 !important;
+  }
   .hero-section h1,
   .about-hero h1,
   .team-hero h1 {

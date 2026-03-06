@@ -146,7 +146,8 @@
             </div>
             <div class="metric-item">
                 <span>Youth Employment</span>
-                <h3>60% of jobs by youth under 35</h3>
+                <h3>60%</h3>
+                <p class="youth-employment-p">jobs by youth under 35</p>
             </div>            
         </div>
 
