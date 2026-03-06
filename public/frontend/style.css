@@ -261,7 +261,7 @@ header.scrolled .hamburger span {
   pointer-events: none;
 }
 .container {
-  max-width: 1366px;
+  max-width: 95%;
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
@@ -397,7 +397,7 @@ header.scrolled .hamburger span {
 }
 
 .section-bbee .container {
-  max-width: 1366px;
+  max-width: 95%;
   background-color: #fff;
   border-radius: 20px;
   padding: 0;
@@ -858,7 +858,7 @@ header.scrolled .hamburger span {
   grid-template-columns: 1fr 1fr;
   gap: 55px;
   align-items: center;
-  max-width: 1366px;
+  max-width: 95%;
   margin: 0 auto;
   background: #fff;
   overflow: hidden;
@@ -892,7 +892,7 @@ header.scrolled .hamburger span {
 .philosophy-card {
   background: #fff;
   border-radius: 20px;
-  max-width: 1366px;
+  max-width: 95%;
   margin: 0 auto;
   text-align: center;
 }
@@ -926,7 +926,7 @@ header.scrolled .hamburger span {
 .small_container {
   padding: 0 20px;
   margin: 0 auto;
-  max-width: 1366px;
+  max-width: 95%;
   width: 100%;
 }
 
