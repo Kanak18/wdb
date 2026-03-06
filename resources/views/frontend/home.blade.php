@@ -9,7 +9,7 @@
     <div class="container">
         <div class="hero-content hero-left-shape">
             <h1>
-                Funding Small Businesses <br />
+                Funding Small <br />Businesses 
                 in South Africa
             </h1>
             <ul class="hero-features">
